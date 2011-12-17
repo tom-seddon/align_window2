@@ -1,0 +1,89 @@
+#+OPTIONS: toc:nil num:nil author:nil email:nil creator:nil timestamp:nil ^:nil
+#+TITLE: align_window2
+
+=align_window2= aligns the window that has focus with the edges of the
+display, and makes it span half, a third or all of the width and half
+or all of the height of the display. This allows up to six windows to
+be conveniently arranged on one monitor, without having to mess around
+with the limited functionality of Tile Windows Vertically or Tile
+Windows Horizontally.
+
+It's designed for use with a hotkey program, such as [[http://www.autohotkey.com/][AutoHotKey]], so
+that you can do all of this from the keyboard.
+
+* download
+
+[[./align_window2.zip][align_window2.zip]] (program, source code, this file)
+
+* AutoHotKey installation
+
+The official approved AutoHotKey configuration is as follows. Add this
+to your AutoHotKey INI file using the 'Edit This Script' option on
+AutoHotKey's right-click menu.
+
+#+BEGIN_EXAMPLE
+#Numpad1::Run c:\bin\align_window2 1
+#Numpad2::Run c:\bin\align_window2 2
+#Numpad3::Run c:\bin\align_window2 3
+#Numpad4::Run c:\bin\align_window2 4
+#Numpad5::Run c:\bin\align_window2 5
+#Numpad6::Run c:\bin\align_window2 6
+#Numpad7::Run c:\bin\align_window2 7
+#Numpad8::Run c:\bin\align_window2 8
+#Numpad9::Run c:\bin\align_window2 9
+#NumpadEnd::Run c:\bin\align_window2 1
+#NumpadDown::Run c:\bin\align_window2 2
+#NumpadPgDn::Run c:\bin\align_window2 3
+#NumpadLeft::Run c:\bin\align_window2 4
+#NumpadClear::Run c:\bin\align_window2 5
+#NumpadRight::Run c:\bin\align_window2 6
+#NumpadHome::Run c:\bin\align_window2 7
+#NumpadUp::Run c:\bin\align_window2 8
+#NumpadPgUp::Run c:\bin\align_window2 9
+^#Numpad1::Run c:\bin\align_window2 1w
+^#Numpad2::Run c:\bin\align_window2 2w
+^#Numpad3::Run c:\bin\align_window2 3w
+^#Numpad4::Run c:\bin\align_window2 4w
+^#Numpad5::Run c:\bin\align_window2 5w
+^#Numpad6::Run c:\bin\align_window2 6w
+^#Numpad7::Run c:\bin\align_window2 7w
+^#Numpad8::Run c:\bin\align_window2 8w
+^#Numpad9::Run c:\bin\align_window2 9w
+^#NumpadEnd::Run c:\bin\align_window2 1w
+^#NumpadDown::Run c:\bin\align_window2 2w
+^#NumpadPgDn::Run c:\bin\align_window2 3w
+^#NumpadLeft::Run c:\bin\align_window2 4w
+^#NumpadClear::Run c:\bin\align_window2 5w
+^#NumpadRight::Run c:\bin\align_window2 6w
+^#NumpadHome::Run c:\bin\align_window2 7w
+^#NumpadUp::Run c:\bin\align_window2 8w
+^#NumpadPgUp::Run c:\bin\align_window2 9w
+#+END_EXAMPLE
+
+Hold down the Windows key and press a key on the numeric keypad to
+move the window to one of the predefined positions, corresponding to
+the position of that key on the keypad:
+
+#+ATTR_HTML: border="2" frame="all" rules="all"
+| 7 - left half, top half    | 8 - full width, top half    | 9 - right half, top half    |
+| 4 - left, full height      | 5 - maximized               | 6 - right half, full height |
+| 1 - left half, bottom half | 2 - full width, bottom half | 2 - right half, bottom half |
+
+Hold down Ctrl+Windows key and press a key on the numeric keypad to
+move the window to one of the predefined "widescreen" positions. The
+principle is the same, but these positions are better for some
+programs when using a high-res widescreen monitor:
+
+#+ATTR_HTML: border="2" frame="all" rules="all"
+| 7 - left third, top half    | 8 - middle third, top half    | 9 - right third, top half    |
+| 4 - left third, full height | 5 - middle third, full height | 6 - right third, full height |
+| 1 - left third, bottom half | 2 - middle third, bottom half | 2 - right third, bottom half |
+
+(Widescreen mode is intended for use with widescreen monitors, but
+it's just a name -- it can be used with any size of monitor.)
+
+* known bugs
+
+- Windows that don't resize aren't handled perfectly.
+
+- No support for leaving window size alone, e.g., for console windows.
