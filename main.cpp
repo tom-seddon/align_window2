@@ -33,9 +33,11 @@ void Entry()
 
 				int halfh=(newRect.bottom-newRect.top)/2;
 
-				if(argv[1][1]==L'w')
+				if(argv[1][1]==L'w'||argv[1][1]==L'W')
 				{
+					bool two=argv[1][1]==L'W';
 					int thirdw=(newRect.right-newRect.left)/3;
+					int twothirdw=(newRect.right-newRect.left)*2/3;
 
 					// Y
 					switch(which)
@@ -68,7 +70,7 @@ void Entry()
 					case 4-1:
 					case 1-1:
 						// Left
-						newRect.right=newRect.left+thirdw;
+						newRect.right=newRect.left+(two?twothirdw:thirdw);
 						break;
 
 					case 8-1:
@@ -83,7 +85,7 @@ void Entry()
 					case 6-1:
 					case 3-1:
 						// Right
-						newRect.left=newRect.right-thirdw;
+						newRect.left=newRect.right-(two?twothirdw:thirdw);
 						break;
 					}
 
